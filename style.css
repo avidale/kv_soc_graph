@@ -1,0 +1,15 @@
+.avatar {
+  clip-path: circle(25px at center);    
+  max-width:50px;
+  width: auto;
+  height: auto;
+}
+.card-back {
+  width:100px;
+  height:100px;
+  background-color:rgba(0, 0, 0, 0.1);
+  position:absolute;
+  text-align:center;
+  font-family: "Arial", "Helvetica", "sans-serif";
+  border-radius: 3px;
+}
