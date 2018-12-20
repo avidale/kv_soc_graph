@@ -11,6 +11,7 @@
 <script>
 var dragObj;
 var elem_id_to_members = {}
+var idx_to_members = []
 var c = document.getElementById("myCanvas");
 W = c.scrollWidth;
 H = c.scrollHeight;
@@ -50,7 +51,7 @@ function draw_lines() {
 
 DECAY = 0.99
 APART = 0.03
-TOGETHER = 0.000001
+TOGETHER = 0.000002
 
 
 function moveit() {
@@ -96,8 +97,8 @@ function moveit() {
         var rect1 = member1['card'].getBoundingClientRect();
         var card1 = member1['card'];
         if (card1 !== dragObj) {
-            card1.style.left = parseFloat(card1.style.left.slice(0, -2)) + member1['vx'] + 'px';
-            card1.style.top  = parseFloat(card1.style.top.slice(0, -2))  + member1['vy'] + 'px';
+            card1.style.left = Math.max(0, Math.min(W-90, parseFloat(card1.style.left.slice(0, -2)) + member1['vx'])) + 'px';
+            card1.style.top  = Math.max(0, Math.min(H-90, parseFloat(card1.style.top.slice(0, -2))  + member1['vy'])) + 'px';
         }
     }
     draw_lines();
@@ -120,6 +121,7 @@ function set_drag_drop(obj) {
 	obj.onmouseup = function(e)
 	{
 		obj.isDown = false;
+        dragObj = null;
 	}
 
 	document.onmousemove = function(e)
@@ -133,6 +135,27 @@ function set_drag_drop(obj) {
 	}
 }
 
+function show_big_card(idx) {
+    member = idx_to_members[idx]
+    var big_card = document.createElement('div');
+    big_card.className = "card-big";
+    big_card.id = "card-big";
+    big_card.innerHTML = '<h2>' + member['name'] + '</h2>'
+    big_card.innerHTML += '<img src="' + member['img'] + '" class="avatar-big">'
+    big_card.innerHTML += '<div class="fact-list"><ul>'
+    big_card.innerHTML += '<li>Образование: ' + member['bachelor'] +'</li>'
+    big_card.innerHTML += '<li>Работа: ' + member['job'] +'</li>'
+    big_card.innerHTML += '<li>Интересы: ' + member['interests'] +'</li>'
+    big_card.innerHTML += '<li>Хобби: ' + member['hobby'] +'</li>'
+    big_card.innerHTML += '</ul></div>'
+    big_card.innerHTML += '</br><a href="' + member['url'] + '"> вк </a>'
+    big_card.innerHTML += '</br><a href="javascript:remove_big_card();"> Закрыть </a>'
+    document.body.appendChild(big_card);
+}
+function remove_big_card() {
+    var element = document.getElementById('card-big');
+    element.parentNode.removeChild(element);
+}
 
 for (i=0; i<graph_data["members"].length; i++) {
     member = graph_data["members"][i]
@@ -141,7 +164,8 @@ for (i=0; i<graph_data["members"].length; i++) {
     elem.className = "card-back";
     elem.id = get_card_name(member);
     elem_id_to_members[elem.id] = member;
-    elem.innerHTML = '<div><a href="' + member['url'] + '">' + member['name'] + '</a></div><img src="' + member['img'] + '" class="avatar">'
+    idx_to_members.push(member)
+    elem.innerHTML = '<div><a href="javascript:show_big_card(' + i + ');">' + member['name'] + '</a></div><img src="' + member['vk_img'] + '" class="avatar">'
     document.body.appendChild(elem);
     set_drag_drop(elem);
     elem.style.left = member['x'] * W
