@@ -1,0 +1,69 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<script type="text/javascript" src="graph_data.json" charset="UTF-8"></script>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="quiz_style.css">
+<title>Любопытные факты о Каппа Веди</title>
+<script>
+function random_sample(len, upper) {
+    var result = [];
+    while (result.length < len && upper > 0 && upper > len) {
+        x = Math.floor(Math.random() * upper);
+        if (!result.includes(x)){
+            result.push(x);
+        }
+    }
+    return(result)
+}
+
+function on_member_click(e) {
+    var text;
+    if(e.currentTarget['winner']) {
+        text = 'Правильный ответ! Обязательно познакомьтесь с этим гостем на встрече.';
+    } else {
+        text = 'неправильно!';
+    }
+    question_div = document.getElementById('the_question');
+    question_div.innerHTML = '<h2>' + text + '</h2>'
+    document.getElementById('next-question-link').style.visibility='visible';
+    for (i=0; i<3; i++) {
+        
+    }
+}
+
+
+function load_questions() {
+    member_ids = random_sample(3, graph_data["members"].length)
+    the_winner = random_sample(1, 3)[0]
+    for (i=0; i<3; i++) {
+        member = graph_data["members"][member_ids[i]];
+        member_div = document.getElementById('guest_' + (i+1));
+        member_div.innerHTML = '<div class="quiz-member-name">' + member['name'] + '</div>';
+        member_div.innerHTML += '<div class="member-image-back"><img src="' + member['img'] + '"></div>';
+        member_div['member'] = member
+        member_div['winner'] = false
+        if (i == the_winner) {
+            member_div['winner'] = true
+            question_div = document.getElementById('the_question');
+            question_div.innerHTML = '<h2>Кто из этих гостей мог сказать о себе ' + '"' + member['fun'] +   '"? </h2>'
+        }
+        member_div.onclick = on_member_click
+    }
+    document.getElementById('next-question-link').style.visibility='hidden';
+}
+
+</script>
+</head>
+<body>
+<div id='quiz-card'>
+<table>
+<tr><td colspan="3"><div id="the_question">Кто из этих гостей - ололошный трололо?</div></td></tr>
+<tr><td><div id="guest_1" class="quiz-member-card"></div></td><td><div id="guest_2" class="quiz-member-card"></div></td><td><div id="guest_3" class="quiz-member-card"></div></td>
+</table>
+<div id="next-question-link"><a onclick="javascript:load_questions()">Дальше</a></div>
+</div>
+<script>
+load_questions();
+</script>
+</body>
