@@ -3,16 +3,21 @@
     <meta charset="UTF-8">
     <script type="text/javascript" src="graph_data.json" charset="UTF-8"></script>
     <link rel="stylesheet" href="style.css">
+    <title>Социальный граф Каппа Веди</title>
 </head>
 <body>
-
+<div>Все аватарки можно перетаскивать.</div>
+<div>Двойной клик - подробности.</div>
 <canvas id="myCanvas" width="1800" height="900" style="border:1px solid #d3d3d3">
+
 
 <script>
 var dragObj;
 var elem_id_to_members = {}
 var idx_to_members = []
 var c = document.getElementById("myCanvas");
+T = c.getBoundingClientRect().top;
+L = c.getBoundingClientRect().left;
 W = c.scrollWidth;
 H = c.scrollHeight;
 
@@ -22,36 +27,37 @@ function get_card_name(member) {
 function get_card_rect(member_id){
     return(graph_data["members"][member_id]['card'].getBoundingClientRect());
 }
-function connect_cards(ctx, rect1, rect2) {
-    ctx.moveTo((rect1.left + rect1.right) / 2 , (rect1.top + rect1.bottom) / 2);
-    ctx.lineTo((rect2.left + rect2.right) / 2 , (rect2.top + rect2.bottom) / 2);
-}
-
-function get_dist(rect1, rect2) {
-    
+function connect_cards(ctx, rect1, rect2, color) {
+    ctx.beginPath();
+    ctx.strokeStyle = color;
+    ctx.moveTo((rect1.left + rect1.right) / 2 - L, (rect1.top + rect1.bottom) / 2 - T);
+    ctx.lineTo((rect2.left + rect2.right) / 2 - L, (rect2.top + rect2.bottom) / 2 - T);
+    ctx.stroke();
 }
 
 function draw_lines() {
     var c = document.getElementById("myCanvas");
     var ctx = c.getContext("2d");
     ctx.clearRect(0,0,W,H);
-    ctx.beginPath();
-    ctx.strokeStyle = "#AADDFF";
     for (i=0; i<graph_data["members"].length; i++) {
         var member1 = graph_data["members"][i];
         var rect1 = member1['card'].getBoundingClientRect();
         for (j=0; j<member1['friends'].length; j++) {
             var member2 = elem_id_to_members['card ' + member1['friends'][j]]
             var rect2 = member2['card'].getBoundingClientRect();
-            connect_cards(ctx, rect1, rect2);
+            if (member1['card'] === dragObj || member2['card'] === dragObj) {
+                color = "#AA50FF"
+            } else {
+                color = "#AADDFF"
+            }
+            connect_cards(ctx, rect1, rect2, color);
         }
     }
-    ctx.stroke();
 }
 
 DECAY = 0.99
 APART = 0.03
-TOGETHER = 0.000002
+TOGETHER = 0.000005
 
 
 function moveit() {
@@ -74,19 +80,20 @@ function moveit() {
             var card2 = member2['card'];
             dist = Math.pow(Math.pow(rect1.top-rect2.top, 2) + Math.pow(rect1.left-rect2.left, 2), 0.5)
             atan = Math.atan2(rect1.left-rect2.left, rect1.top-rect2.top);
-            if (dist < 100) {
-                member1['vx'] = member1['vx'] + Math.sin(atan) * APART;
-                member1['vy'] = member1['vy'] + Math.cos(atan) * APART;
-                member2['vx'] = member2['vx'] - Math.sin(atan) * APART;
-                member2['vy'] = member2['vy'] - Math.cos(atan) * APART;
+            if (dist < 200) {
+                force = Math.max(0, Math.min(120 - dist, 100)) / 100.0 * APART;
+                member1['vx'] = member1['vx'] + Math.sin(atan) * force;
+                member1['vy'] = member1['vy'] + Math.cos(atan) * force;
+                member2['vx'] = member2['vx'] - Math.sin(atan) * force;
+                member2['vy'] = member2['vy'] - Math.cos(atan) * force;
             }
-            if (dist > 100) {
+            if (dist > 50) {
                 if (member1['friends'].includes(member2['name'])) {
-                    var mdist = Math.min(dist, 500);
-                    member1['vx'] = member1['vx'] - Math.sin(atan) * TOGETHER * mdist;
-                    member1['vy'] = member1['vy'] - Math.cos(atan) * TOGETHER * mdist;
-                    member2['vx'] = member2['vx'] + Math.sin(atan) * TOGETHER * mdist;
-                    member2['vy'] = member2['vy'] + Math.cos(atan) * TOGETHER * mdist;
+                    var mdist = Math.min(dist, 500) * TOGETHER ;
+                    member1['vx'] = member1['vx'] - Math.sin(atan) * mdist * (member2['card'] === dragObj ? 10 : 1);
+                    member1['vy'] = member1['vy'] - Math.cos(atan) * mdist * (member2['card'] === dragObj ? 10 : 1);
+                    member2['vx'] = member2['vx'] + Math.sin(atan) * mdist * (member1['card'] === dragObj ? 10 : 1);
+                    member2['vy'] = member2['vy'] + Math.cos(atan) * mdist * (member1['card'] === dragObj ? 10 : 1);
                 }
             }
         }
@@ -140,16 +147,20 @@ function show_big_card(idx) {
     var big_card = document.createElement('div');
     big_card.className = "card-big";
     big_card.id = "card-big";
-    big_card.innerHTML = '<h2>' + member['name'] + '</h2>'
-    big_card.innerHTML += '<img src="' + member['img'] + '" class="avatar-big">'
-    big_card.innerHTML += '<div class="fact-list"><ul>'
-    big_card.innerHTML += '<li>Образование: ' + member['bachelor'] +'</li>'
-    big_card.innerHTML += '<li>Работа: ' + member['job'] +'</li>'
-    big_card.innerHTML += '<li>Интересы: ' + member['interests'] +'</li>'
-    big_card.innerHTML += '<li>Хобби: ' + member['hobby'] +'</li>'
-    big_card.innerHTML += '</ul></div>'
-    big_card.innerHTML += '</br><a href="' + member['url'] + '"> вк </a>'
-    big_card.innerHTML += '</br><a href="javascript:remove_big_card();"> Закрыть </a>'
+    big_card.innerHTML = [
+        '<h2>' + member['name'] + '</h2>'
+        ,'<img src="' + member['img'] + '" class="avatar-big">'
+        ,'<div class="fact-list"><ul>'
+        ,'<li>Образование: ' + member['bachelor'] +'</li>'
+        ,'<li>Работа: ' + member['job'] +'</li>'
+        ,'<li>Интересы: ' + member['interests'] +'</li>'
+        ,'<li>Хобби: ' + member['hobby'] +'</li>'
+        ,'</ul>', 
+        ,'</br><a href="' + member['url'] + '"> ВКонтакте </a>'
+        ,'</br><a href="javascript:remove_big_card();"> Закрыть </a>'
+        ,'</div>'
+    ].join('\n')
+
     document.body.appendChild(big_card);
 }
 function remove_big_card() {
@@ -165,7 +176,8 @@ for (i=0; i<graph_data["members"].length; i++) {
     elem.id = get_card_name(member);
     elem_id_to_members[elem.id] = member;
     idx_to_members.push(member)
-    elem.innerHTML = '<div><a href="javascript:show_big_card(' + i + ');">' + member['name'] + '</a></div><img src="' + member['vk_img'] + '" class="avatar">'
+    // elem.innerHTML = '<div><a href="javascript:show_big_card(' + i + ');">' + member['name'] + '</a></div><img src="' + member['vk_img'] + '" class="avatar">'
+    elem.innerHTML = '<div><img ondblclick="javascript:show_big_card(' + i + ');" src="' + member['vk_img'] + '" class="avatar"></div>'
     document.body.appendChild(elem);
     set_drag_drop(elem);
     elem.style.left = member['x'] * W
