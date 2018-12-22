@@ -25,7 +25,7 @@
 }
 
 .card-big {
-  background-color:#fbd603;
+  background-color:#ebebeb;
   border-radius: 10px;
   margin: auto;
   text-align:center;
@@ -36,6 +36,8 @@
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   margin: 25px;
+  border-style: solid;
+  border-width: 0.5px;
 }
 
 .fact-list {

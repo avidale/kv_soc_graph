@@ -2,12 +2,15 @@
 <head>
     <meta charset="UTF-8">
     <script type="text/javascript" src="graph_data.json" charset="UTF-8"></script>
+    <script type="text/javascript" src="common.js" charset="UTF-8"></script>
     <link rel="stylesheet" href="style.css">
     <title>Социальный граф Каппа Веди</title>
 </head>
 <body>
+<table><tr><td>
 <div>Все аватарки можно перетаскивать.</div>
 <div>Двойной клик - подробности.</div>
+</td><td><div><a href="quiz.html">Игра про членов клуба</a></div></td></tr></table>
 <canvas id="myCanvas" width="1800" height="900" style="border:1px solid #d3d3d3">
 
 
@@ -48,7 +51,12 @@ function draw_lines() {
             if (member1['card'] === dragObj || member2['card'] === dragObj) {
                 color = "#AA50FF"
             } else {
-                color = "#AADDFF"
+                if (member1['in_club'] && member2['in_club']) {
+                    color = '#52101e'
+                } else {
+                    color = '#808080'
+                }
+                //color = "#AADDFF"
             }
             connect_cards(ctx, rect1, rect2, color);
         }
@@ -104,8 +112,8 @@ function moveit() {
         var rect1 = member1['card'].getBoundingClientRect();
         var card1 = member1['card'];
         if (card1 !== dragObj) {
-            card1.style.left = Math.max(0, Math.min(W-90, parseFloat(card1.style.left.slice(0, -2)) + member1['vx'])) + 'px';
-            card1.style.top  = Math.max(0, Math.min(H-90, parseFloat(card1.style.top.slice(0, -2))  + member1['vy'])) + 'px';
+            card1.style.left = Math.max(L, Math.min(W+L-50, parseFloat(card1.style.left.slice(0, -2)) + member1['vx'])) + 'px';
+            card1.style.top  = Math.max(T, Math.min(H+T-50, parseFloat(card1.style.top.slice(0, -2))  + member1['vy'])) + 'px';
         }
     }
     draw_lines();
@@ -143,29 +151,8 @@ function set_drag_drop(obj) {
 }
 
 function show_big_card(idx) {
-    member = idx_to_members[idx]
-    var big_card = document.createElement('div');
-    big_card.className = "card-big";
-    big_card.id = "card-big";
-    big_card.innerHTML = [
-        '<h2>' + member['name'] + '</h2>'
-        ,'<img src="' + member['img'] + '" class="avatar-big">'
-        ,'<div class="fact-list"><ul>'
-        ,'<li>Образование: ' + member['bachelor'] +'</li>'
-        ,'<li>Работа: ' + member['job'] +'</li>'
-        ,'<li>Интересы: ' + member['interests'] +'</li>'
-        ,'<li>Хобби: ' + member['hobby'] +'</li>'
-        ,'</ul>', 
-        ,'</br><a href="' + member['url'] + '"> ВКонтакте </a>'
-        ,'</br><a href="javascript:remove_big_card();"> Закрыть </a>'
-        ,'</div>'
-    ].join('\n')
-
-    document.body.appendChild(big_card);
-}
-function remove_big_card() {
-    var element = document.getElementById('card-big');
-    element.parentNode.removeChild(element);
+    member = idx_to_members[idx];
+    show_big_card_for_member(member);
 }
 
 for (i=0; i<graph_data["members"].length; i++) {

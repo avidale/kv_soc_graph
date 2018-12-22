@@ -2,6 +2,7 @@
 <head>
 <meta charset="UTF-8">
 <script type="text/javascript" src="graph_data.json" charset="UTF-8"></script>
+<script type="text/javascript" src="common.js" charset="UTF-8"></script>
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="quiz_style.css">
 <title>Любопытные факты о Каппа Веди</title>
@@ -19,16 +20,40 @@ function random_sample(len, upper) {
 
 function on_member_click(e) {
     var text;
+    m = e.currentTarget['member']
     if(e.currentTarget['winner']) {
-        text = 'Правильный ответ! Обязательно познакомьтесь с этим гостем на встрече.';
+        text = 'Правильный ответ!<br>' 
+        if (m['presence']) {
+            text += 'Обязательно познакомьтесь с ' + m['inflections']['ablt'] + ' на встрече'; 
+        } else {
+            text += m['inflections']['gent'] + ' нет на встрече, но у вас ещё будет шанс пообщаться.';
+        }
     } else {
-        text = 'неправильно!';
+        text = 'Не угадали ;)';
+        text += '<br>Интересный факт от ' + m['inflections']['gent'] + ' - "' + m['fun'] + '". <br>Не забудьте познакомиться с ребятами!'
     }
     question_div = document.getElementById('the_question');
-    question_div.innerHTML = '<h2>' + text + '</h2>'
+    question_div.innerHTML = '<h3>' + text + '</h3>'
     document.getElementById('next-question-link').style.visibility='visible';
     for (i=0; i<3; i++) {
-        
+        // we cannot click on members until the next question
+        member_div = document.getElementById('guest_' + (i+1));
+        var circle = null;
+        for (var j = 0; j < member_div.childNodes.length; j++) {
+            if (member_div.childNodes[j].className == "member-image-back") {
+              circle = member_div.childNodes[j];
+              break;
+            }        
+        }
+        if (member_div == e.currentTarget && !member_div['winner']) {
+            circle.style.background = 'red';
+        }
+        if (member_div['winner']) {
+            circle.style.background = 'green';
+        }
+        member_div.onclick = function(e){
+            show_big_card_for_member(e.currentTarget['member']);
+        };
     }
 }
 
@@ -46,24 +71,29 @@ function load_questions() {
         if (i == the_winner) {
             member_div['winner'] = true
             question_div = document.getElementById('the_question');
-            question_div.innerHTML = '<h2>Кто из этих гостей мог сказать о себе ' + '"' + member['fun'] +   '"? </h2>'
+            question_div.innerHTML = '<h3>Кто из этих гостей мог сказать о себе ' + '"' + member['fun'] +   '"? </h3>'
         }
         member_div.onclick = on_member_click
     }
     document.getElementById('next-question-link').style.visibility='hidden';
+    document.getElementById('quiz-table').style.visibility='visible';
+    document.getElementById('intro-div').style.visibility='hidden';
 }
 
 </script>
 </head>
 <body>
+<div><a href="index.html">Социальный граф клуба</a></div>
+
 <div id='quiz-card'>
-<table>
+<div id='intro-div'>
+    Привет! Вам предстоит игра из 12 интересных вопросов. Вы готовы? 
+    <div onclick="javascript:load_questions();" id="yes-button">Да!</div>
+</div>
+<table class='quiz-table' id='quiz-table'>
 <tr><td colspan="3"><div id="the_question">Кто из этих гостей - ололошный трололо?</div></td></tr>
 <tr><td><div id="guest_1" class="quiz-member-card"></div></td><td><div id="guest_2" class="quiz-member-card"></div></td><td><div id="guest_3" class="quiz-member-card"></div></td>
 </table>
-<div id="next-question-link"><a onclick="javascript:load_questions()">Дальше</a></div>
+<div id="next-question-link" onclick="javascript:load_questions()">Дальше</a></div>
 </div>
-<script>
-load_questions();
-</script>
 </body>
