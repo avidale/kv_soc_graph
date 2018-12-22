@@ -2,7 +2,7 @@
 #the_question {
   font-family: "Arial", "Helvetica", "sans-serif";
   text-align:center;
-  height: 120px;
+  height: 150px;
 }
 
 .member-image-back {
@@ -71,6 +71,13 @@
   height: 30px;
 }
 
+.quiz-button{
+  background-color:#fbd603;
+  border-radius: 10px;
+  margin: 10px;
+  height: 30px;
+}
+
 #quiz-table{
   visibility: hidden;
 }
@@ -78,9 +85,15 @@
 #intro-div{
   font-family: "Arial", "Helvetica", "sans-serif";
   text-align:center;
+  visibility: visible;
 }
 
-#yes-button{
+#result-div{
+  font-family: "Arial", "Helvetica", "sans-serif";
+  text-align:center;
+}
+
+.yes-button{
   background-color:#fbd603;
   border-radius: 10px;
   height: 30px;

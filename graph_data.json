@@ -27,7 +27,8 @@ graph_data={
         "ablt": "Тимуром"
       },
       "in_club": false,
-      "presence": true
+      "presence": true,
+      "idx": 0
     },
     {
       "name": "Арина Егорова",
@@ -64,7 +65,8 @@ graph_data={
         "ablt": "Ариной"
       },
       "in_club": true,
-      "presence": false
+      "presence": false,
+      "idx": 1
     },
     {
       "name": "Дарья Сарафанова",
@@ -102,7 +104,8 @@ graph_data={
         "ablt": "Дарьей"
       },
       "in_club": false,
-      "presence": true
+      "presence": true,
+      "idx": 2
     },
     {
       "name": "Максим Мольдерф",
@@ -161,7 +164,8 @@ graph_data={
         "ablt": "Максимом"
       },
       "in_club": true,
-      "presence": false
+      "presence": false,
+      "idx": 3
     },
     {
       "name": "Артём Аксельрод",
@@ -188,7 +192,8 @@ graph_data={
         "ablt": "Артёмом"
       },
       "in_club": false,
-      "presence": true
+      "presence": true,
+      "idx": 4
     },
     {
       "name": "Иван Коланьков",
@@ -236,7 +241,8 @@ graph_data={
         "ablt": "Иваном"
       },
       "in_club": true,
-      "presence": false
+      "presence": false,
+      "idx": 5
     },
     {
       "name": "Адам Закрия",
@@ -277,7 +283,8 @@ graph_data={
         "ablt": "Адамом"
       },
       "in_club": true,
-      "presence": false
+      "presence": false,
+      "idx": 6
     },
     {
       "name": "Роман Волков",
@@ -317,7 +324,8 @@ graph_data={
         "ablt": "Романом"
       },
       "in_club": false,
-      "presence": true
+      "presence": true,
+      "idx": 7
     },
     {
       "name": "Влад Рассказов",
@@ -355,7 +363,8 @@ graph_data={
         "ablt": "Владом"
       },
       "in_club": true,
-      "presence": false
+      "presence": false,
+      "idx": 8
     },
     {
       "name": "Юлия Городищер",
@@ -401,7 +410,8 @@ graph_data={
         "ablt": "Юлией"
       },
       "in_club": true,
-      "presence": true
+      "presence": true,
+      "idx": 9
     },
     {
       "name": "Катя Александрова",
@@ -452,7 +462,8 @@ graph_data={
         "ablt": "Катей"
       },
       "in_club": true,
-      "presence": false
+      "presence": false,
+      "idx": 10
     },
     {
       "name": "Елена Сачкова",
@@ -477,7 +488,8 @@ graph_data={
         "ablt": "Еленой"
       },
       "in_club": true,
-      "presence": false
+      "presence": false,
+      "idx": 11
     },
     {
       "name": "Виктория Липатова",
@@ -519,7 +531,8 @@ graph_data={
         "ablt": "Викторией"
       },
       "in_club": true,
-      "presence": false
+      "presence": false,
+      "idx": 12
     },
     {
       "name": "Сергей Сочнев",
@@ -570,7 +583,8 @@ graph_data={
         "ablt": "Сергеем"
       },
       "in_club": true,
-      "presence": false
+      "presence": false,
+      "idx": 13
     },
     {
       "name": "Дмитрий Ильенков",
@@ -593,7 +607,8 @@ graph_data={
         "ablt": "Дмитрием"
       },
       "in_club": false,
-      "presence": true
+      "presence": true,
+      "idx": 14
     },
     {
       "name": "Ахмад Закрия",
@@ -639,7 +654,8 @@ graph_data={
         "ablt": "Ахмадом"
       },
       "in_club": true,
-      "presence": false
+      "presence": false,
+      "idx": 15
     },
     {
       "name": "Максим Вишневский",
@@ -663,7 +679,8 @@ graph_data={
         "ablt": "Максимом"
       },
       "in_club": false,
-      "presence": true
+      "presence": true,
+      "idx": 16
     },
     {
       "name": "Антон Ланцов",
@@ -688,7 +705,8 @@ graph_data={
         "ablt": "Антоном"
       },
       "in_club": false,
-      "presence": true
+      "presence": true,
+      "idx": 17
     },
     {
       "name": "Леонид Бакулев",
@@ -715,7 +733,8 @@ graph_data={
         "ablt": "Леонидом"
       },
       "in_club": false,
-      "presence": true
+      "presence": true,
+      "idx": 18
     },
     {
       "name": "Егор Николаев",
@@ -752,7 +771,8 @@ graph_data={
         "ablt": "Егором"
       },
       "in_club": true,
-      "presence": true
+      "presence": true,
+      "idx": 19
     },
     {
       "name": "Лейла Алиева",
@@ -775,7 +795,8 @@ graph_data={
         "ablt": "Лейлой"
       },
       "in_club": false,
-      "presence": true
+      "presence": true,
+      "idx": 20
     },
     {
       "name": "Антон Савин",
@@ -807,7 +828,8 @@ graph_data={
         "ablt": "Антоном"
       },
       "in_club": false,
-      "presence": true
+      "presence": true,
+      "idx": 21
     },
     {
       "name": "Алексей Белянкин",
@@ -830,7 +852,8 @@ graph_data={
         "ablt": "Алексеем"
       },
       "in_club": false,
-      "presence": true
+      "presence": true,
+      "idx": 22
     },
     {
       "name": "Вероника Козлова",
@@ -853,7 +876,8 @@ graph_data={
         "ablt": "Вероникой"
       },
       "in_club": false,
-      "presence": true
+      "presence": true,
+      "idx": 23
     },
     {
       "name": "Александр Краснов",
@@ -902,7 +926,8 @@ graph_data={
         "ablt": "Александром"
       },
       "in_club": true,
-      "presence": false
+      "presence": false,
+      "idx": 24
     },
     {
       "name": "Юлия Шаталова",
@@ -929,7 +954,8 @@ graph_data={
         "ablt": "Юлией"
       },
       "in_club": false,
-      "presence": true
+      "presence": true,
+      "idx": 25
     },
     {
       "name": "Анна Терещенко",
@@ -963,7 +989,8 @@ graph_data={
         "ablt": "Анной"
       },
       "in_club": false,
-      "presence": true
+      "presence": true,
+      "idx": 26
     },
     {
       "name": "Антон Грушко",
@@ -1013,7 +1040,8 @@ graph_data={
         "ablt": "Антоном"
       },
       "in_club": true,
-      "presence": true
+      "presence": true,
+      "idx": 27
     },
     {
       "name": "Серж Тодорович",
@@ -1064,7 +1092,8 @@ graph_data={
         "ablt": "Сержем"
       },
       "in_club": true,
-      "presence": true
+      "presence": true,
+      "idx": 28
     },
     {
       "name": "Байыр Домбаанай",
@@ -1087,7 +1116,8 @@ graph_data={
         "ablt": "Байыром"
       },
       "in_club": false,
-      "presence": true
+      "presence": true,
+      "idx": 29
     },
     {
       "name": "Анна Раковская",
@@ -1132,7 +1162,8 @@ graph_data={
         "ablt": "Анной"
       },
       "in_club": true,
-      "presence": true
+      "presence": true,
+      "idx": 30
     },
     {
       "name": "Анастасия Гапонец",
@@ -1167,7 +1198,8 @@ graph_data={
         "ablt": "Анастасией"
       },
       "in_club": true,
-      "presence": true
+      "presence": true,
+      "idx": 31
     },
     {
       "name": "Александр Алексеев",
@@ -1218,7 +1250,8 @@ graph_data={
         "ablt": "Александром"
       },
       "in_club": true,
-      "presence": true
+      "presence": true,
+      "idx": 32
     },
     {
       "name": "Анастасия Колесникова",
@@ -1251,7 +1284,8 @@ graph_data={
         "ablt": "Анастасией"
       },
       "in_club": false,
-      "presence": true
+      "presence": true,
+      "idx": 33
     },
     {
       "name": "Ростислав Земцов",
@@ -1308,7 +1342,8 @@ graph_data={
         "ablt": "Ростиславом"
       },
       "in_club": true,
-      "presence": false
+      "presence": false,
+      "idx": 34
     },
     {
       "name": "Владимир Брагин",
@@ -1335,7 +1370,8 @@ graph_data={
         "ablt": "Владимиром"
       },
       "in_club": false,
-      "presence": true
+      "presence": true,
+      "idx": 35
     },
     {
       "name": "Мария Рослякова",
@@ -1368,7 +1404,8 @@ graph_data={
         "ablt": "Марией"
       },
       "in_club": false,
-      "presence": true
+      "presence": true,
+      "idx": 36
     },
     {
       "name": "Айрана Монгуш",
@@ -1406,7 +1443,8 @@ graph_data={
         "ablt": "Айраной"
       },
       "in_club": true,
-      "presence": true
+      "presence": true,
+      "idx": 37
     },
     {
       "name": "Азамат Базиев",
@@ -1429,7 +1467,8 @@ graph_data={
         "ablt": "Азаматом"
       },
       "in_club": false,
-      "presence": true
+      "presence": true,
+      "idx": 38
     },
     {
       "name": "Владислав Алешин",
@@ -1455,7 +1494,8 @@ graph_data={
         "ablt": "Владиславом"
       },
       "in_club": true,
-      "presence": true
+      "presence": true,
+      "idx": 39
     },
     {
       "name": "Сергей Калиниченко",
@@ -1478,7 +1518,8 @@ graph_data={
         "ablt": "Сергеем"
       },
       "in_club": false,
-      "presence": true
+      "presence": true,
+      "idx": 40
     },
     {
       "name": "Гимиран Утенов",
@@ -1506,7 +1547,8 @@ graph_data={
         "ablt": "Гимираном"
       },
       "in_club": false,
-      "presence": true
+      "presence": true,
+      "idx": 41
     },
     {
       "name": "Анастасия Галгашова",
@@ -1539,7 +1581,8 @@ graph_data={
         "ablt": "Анастасией"
       },
       "in_club": false,
-      "presence": true
+      "presence": true,
+      "idx": 42
     },
     {
       "name": "Никита Демин",
@@ -1562,7 +1605,8 @@ graph_data={
         "ablt": "Никитой"
       },
       "in_club": false,
-      "presence": true
+      "presence": true,
+      "idx": 43
     },
     {
       "name": "Дарья Кузнецова",
@@ -1589,7 +1633,8 @@ graph_data={
         "ablt": "Дарьей"
       },
       "in_club": false,
-      "presence": true
+      "presence": true,
+      "idx": 44
     },
     {
       "name": "Дмитрий Борунов",
@@ -1651,7 +1696,8 @@ graph_data={
         "ablt": "Дмитрием"
       },
       "in_club": true,
-      "presence": true
+      "presence": true,
+      "idx": 45
     },
     {
       "name": "Никита Коликов",
@@ -1708,7 +1754,8 @@ graph_data={
         "ablt": "Никитой"
       },
       "in_club": true,
-      "presence": true
+      "presence": true,
+      "idx": 46
     },
     {
       "name": "Олег Зотов",
@@ -1732,7 +1779,8 @@ graph_data={
         "ablt": "Олегом"
       },
       "in_club": false,
-      "presence": true
+      "presence": true,
+      "idx": 47
     },
     {
       "name": "Надя Петрова",
@@ -1758,7 +1806,8 @@ graph_data={
         "ablt": "Надей"
       },
       "in_club": false,
-      "presence": true
+      "presence": true,
+      "idx": 48
     },
     {
       "name": "Юрий Кульчицкий",
@@ -1807,7 +1856,8 @@ graph_data={
         "ablt": "Юрием"
       },
       "in_club": true,
-      "presence": true
+      "presence": true,
+      "idx": 49
     },
     {
       "name": "Радмила Султанова",
@@ -1835,7 +1885,8 @@ graph_data={
         "ablt": "Радмилой"
       },
       "in_club": false,
-      "presence": true
+      "presence": true,
+      "idx": 50
     },
     {
       "name": "Владимир Михайлов",
@@ -1862,7 +1913,8 @@ graph_data={
         "ablt": "Владимиром"
       },
       "in_club": false,
-      "presence": true
+      "presence": true,
+      "idx": 51
     },
     {
       "name": "Давид Дале",
@@ -1917,7 +1969,8 @@ graph_data={
         "ablt": "Давидом"
       },
       "in_club": true,
-      "presence": false
+      "presence": false,
+      "idx": 52
     },
     {
       "name": "Евгений Никитин",
@@ -1961,7 +2014,8 @@ graph_data={
         "ablt": "Евгением"
       },
       "in_club": true,
-      "presence": true
+      "presence": true,
+      "idx": 53
     },
     {
       "name": "Мария Ильиных",
@@ -1986,7 +2040,8 @@ graph_data={
         "ablt": "Марией"
       },
       "in_club": false,
-      "presence": true
+      "presence": true,
+      "idx": 54
     },
     {
       "name": "Никита Толстой",
@@ -2035,7 +2090,8 @@ graph_data={
         "ablt": "Никитой"
       },
       "in_club": false,
-      "presence": true
+      "presence": true,
+      "idx": 55
     },
     {
       "name": "Ренат Заяшников",
@@ -2099,7 +2155,8 @@ graph_data={
         "ablt": "Ренатом"
       },
       "in_club": true,
-      "presence": true
+      "presence": true,
+      "idx": 56
     },
     {
       "name": "Василий Сиников",
@@ -2159,7 +2216,8 @@ graph_data={
         "ablt": "Василием"
       },
       "in_club": true,
-      "presence": true
+      "presence": true,
+      "idx": 57
     },
     {
       "name": "Евгений Павленко",
@@ -2214,7 +2272,8 @@ graph_data={
         "ablt": "Евгением"
       },
       "in_club": true,
-      "presence": true
+      "presence": true,
+      "idx": 58
     },
     {
       "name": "Алексей Борисов",
@@ -2241,7 +2300,8 @@ graph_data={
         "ablt": "Алексеем"
       },
       "in_club": false,
-      "presence": true
+      "presence": true,
+      "idx": 59
     },
     {
       "name": "Кирилл Яцушко",
@@ -2295,7 +2355,8 @@ graph_data={
         "ablt": "Кириллом"
       },
       "in_club": true,
-      "presence": true
+      "presence": true,
+      "idx": 60
     },
     {
       "name": "Анна Подображных",
@@ -2330,7 +2391,8 @@ graph_data={
         "ablt": "Анной"
       },
       "in_club": true,
-      "presence": true
+      "presence": true,
+      "idx": 61
     },
     {
       "name": "Владимир Ванин",
@@ -2357,7 +2419,8 @@ graph_data={
         "ablt": "Владимиром"
       },
       "in_club": false,
-      "presence": true
+      "presence": true,
+      "idx": 62
     },
     {
       "name": "Даниэль Фельдман",
@@ -2382,7 +2445,8 @@ graph_data={
         "ablt": "Даниэлем"
       },
       "in_club": false,
-      "presence": true
+      "presence": true,
+      "idx": 63
     },
     {
       "name": "Александр Солдатов",
@@ -2407,7 +2471,8 @@ graph_data={
         "ablt": "Александром"
       },
       "in_club": false,
-      "presence": true
+      "presence": true,
+      "idx": 64
     },
     {
       "name": "Ярослав Корякин",
@@ -2456,7 +2521,8 @@ graph_data={
         "ablt": "Ярославом"
       },
       "in_club": true,
-      "presence": true
+      "presence": true,
+      "idx": 65
     },
     {
       "name": "Альфия Бабий",
@@ -2496,7 +2562,8 @@ graph_data={
         "ablt": "Альфией"
       },
       "in_club": true,
-      "presence": true
+      "presence": true,
+      "idx": 66
     },
     {
       "name": "Анастасия Головина",
@@ -2530,7 +2597,8 @@ graph_data={
         "ablt": "Анастасией"
       },
       "in_club": false,
-      "presence": true
+      "presence": true,
+      "idx": 67
     },
     {
       "name": "Степан Иванов",
@@ -2604,7 +2672,8 @@ graph_data={
         "ablt": "Степаном"
       },
       "in_club": true,
-      "presence": true
+      "presence": true,
+      "idx": 68
     },
     {
       "name": "Дарья Харламова",
@@ -2665,7 +2734,8 @@ graph_data={
         "ablt": "Дарьей"
       },
       "in_club": true,
-      "presence": true
+      "presence": true,
+      "idx": 69
     },
     {
       "name": "Жонибек Ортиков",
@@ -2716,7 +2786,8 @@ graph_data={
         "ablt": "Жонибеком"
       },
       "in_club": true,
-      "presence": true
+      "presence": true,
+      "idx": 70
     },
     {
       "name": "Виктор Козлов",
@@ -2765,7 +2836,8 @@ graph_data={
         "ablt": "Виктором"
       },
       "in_club": false,
-      "presence": true
+      "presence": true,
+      "idx": 71
     },
     {
       "name": "Григорий Шабалов",
@@ -2796,7 +2868,8 @@ graph_data={
         "ablt": "Григорием"
       },
       "in_club": true,
-      "presence": true
+      "presence": true,
+      "idx": 72
     },
     {
       "name": "Сергей Шершень",
@@ -2855,7 +2928,8 @@ graph_data={
         "ablt": "Сергеем"
       },
       "in_club": true,
-      "presence": true
+      "presence": true,
+      "idx": 73
     }
   ]
 }
