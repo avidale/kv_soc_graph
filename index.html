@@ -49,12 +49,12 @@ function draw_lines() {
             var member2 = elem_id_to_members['card ' + member1['friends'][j]]
             var rect2 = member2['card'].getBoundingClientRect();
             if (member1['card'] === dragObj || member2['card'] === dragObj) {
-                color = "#AA50FF"
+                color = '#FF3000' //"#AA50FF"
             } else {
                 if (member1['in_club'] && member2['in_club']) {
-                    color = '#52101e'
+                    color = '#FFCC00' //'#52101e'
                 } else {
-                    color = '#808080'
+                    color =  '#CCCCCC' //'#808080'
                 }
                 //color = "#AADDFF"
             }
@@ -88,8 +88,8 @@ function moveit() {
             var card2 = member2['card'];
             dist = Math.pow(Math.pow(rect1.top-rect2.top, 2) + Math.pow(rect1.left-rect2.left, 2), 0.5)
             atan = Math.atan2(rect1.left-rect2.left, rect1.top-rect2.top);
-            if (dist < 200) {
-                force = Math.max(0, Math.min(120 - dist, 100)) / 100.0 * APART;
+            if (dist < 300) {
+                force = Math.max(0, Math.min(150 - dist, 100)) / 100.0 * APART;
                 member1['vx'] = member1['vx'] + Math.sin(atan) * force;
                 member1['vy'] = member1['vy'] + Math.cos(atan) * force;
                 member2['vx'] = member2['vx'] - Math.sin(atan) * force;
@@ -164,7 +164,7 @@ for (i=0; i<graph_data["members"].length; i++) {
     elem_id_to_members[elem.id] = member;
     idx_to_members.push(member)
     // elem.innerHTML = '<div><a href="javascript:show_big_card(' + i + ');">' + member['name'] + '</a></div><img src="' + member['vk_img'] + '" class="avatar">'
-    elem.innerHTML = '<div><img ondblclick="javascript:show_big_card(' + i + ');" src="' + member['vk_img'] + '" class="avatar"></div>'
+    elem.innerHTML = '<div class="avatar-div' + (member['in_club'] ? '-kv' : '') +'"><img ondblclick="javascript:show_big_card(' + i + ');" src="' + member['vk_img'] + '" class="avatar"></div>'
     document.body.appendChild(elem);
     set_drag_drop(elem);
     elem.style.left = member['x'] * W

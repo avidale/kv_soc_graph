@@ -1,5 +1,19 @@
 
 
+.avatar-div {
+  clip-path: circle(26px at center);    
+  width: 52;
+  height: 52;
+  background-color:#CCCCCC;
+}
+
+.avatar-div-kv {
+  clip-path: circle(26px at center);    
+  width: 52;
+  height: 52;
+  background-color:#FFCC00;
+}
+
 .avatar {
   clip-path: circle(25px at center);    
   max-width:50px;
@@ -11,6 +25,8 @@
   -webkit-user-drag: none;
   -webkit-user-select: none;
   -ms-user-select: none;
+  top: 1;
+  position: relative;
 }
 
 .avatar-big {
