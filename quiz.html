@@ -85,7 +85,12 @@ function load_questions() {
         }
         result_div.innerHTML = '<h3>' + text + '</h3>' + '<div onclick="javascript:load_questions();" class="quiz-button">Сыграть ещё раз</div>'
         CURRENT_QUESTION = 0;
-        USED_IDS.length = 0;
+        CURRENT_SCORE = 0;
+        // if we may run out of questions in the next round, we free some questions
+        while (graph_data["members"].length - USED_IDS.length  < NUM_QUESTIONS * 2 && USED_IDS.length > 0) {
+            USED_IDS.shift();
+        }
+        alert('used ids len: ' + USED_IDS.length);
         return 
         
     }
